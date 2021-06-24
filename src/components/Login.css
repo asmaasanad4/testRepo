@@ -1,6 +1,15 @@
 .con{
     text-align: center;
     flex-direction: column;
-    background-color: rgb(204, 96, 114);
-    border-radius: 10%;
+    align-items: center;
+    border-radius: 15%;
+    justify-content: center;
+    height: 50vh;
+    width: 50vh;
+    
+}
+.inp{
+    align-items: flex-start;
+    flex: 1;
+
 }
