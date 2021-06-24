@@ -1,0 +1,6 @@
+.con{
+    text-align: center;
+    flex-direction: column;
+    background-color: rgb(204, 96, 114);
+    border-radius: 10%;
+}
