@@ -3,7 +3,6 @@ import './Login.css';
 
 const LoginForm = (props) => {
     const [form, setForm] = useState({ email: '', password: '' });
-    // const [data, setData] = useState(false);
 
     const onChangeHandler = (e) => {
         setForm(prevState => ({
@@ -13,7 +12,6 @@ const LoginForm = (props) => {
     };
     const onClickhandler = () => {
         if (form.password && form.email) {
-            // setData(true);
         }
     };
     const submitHandler = () => {
@@ -22,8 +20,8 @@ const LoginForm = (props) => {
 
     return (
         <form onSubmit={submitHandler} className="con">
-            <div >
-                <div className="inp">
+            <div  className="inp">
+                <div >
                     <label htmlFor="email">Email: </label>
                     <input type="email" id="email" name="email" onChange={onChangeHandler} value={form.email || ''} />
                 </div>
@@ -31,15 +29,9 @@ const LoginForm = (props) => {
                     <label htmlFor="password">Password: </label>
                     <input type="password" id="password" name="password" onChange={onChangeHandler} value={form.password || ''} />
                 </div>
-                <button onClick={onClickhandler} >Login</button>
-                {/* <input type="submit" value="SUBMIT" />
-                {data ? <div>
-                    <p>
-                        {form.email}
-                    </p>
-                    <p> {form.password}</p>
-                </div> : <div> No Data</div>} */}
+                
             </div>
+            <button className="but" onClick={onClickhandler} >Login</button>
         </form>
     );
 }

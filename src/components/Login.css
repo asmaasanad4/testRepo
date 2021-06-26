@@ -1,15 +1,21 @@
-.con{
-    text-align: center;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 15%;
-    justify-content: center;
-    height: 50vh;
-    width: 50vh;
-    
+.con {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  border-radius: 15%;
+  justify-content: space-around;
+  height: 50vh;
+  width: 50vh;
+  background-color: cadetblue;
 }
-.inp{
-    align-items: flex-start;
-    flex: 1;
-
+.inp {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.but {
+  width: 50%;
+  height: 10%;
+  font-size: calc(10px + 2vmin);
 }
