@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { connect,useDispatch } from 'react-redux';
+
 import './Login.css';
 
 const LoginForm = (props) => {
+    const dispatch= useDispatch();
     const [form, setForm] = useState({ email: '', password: '' });
 
     const onChangeHandler = (e) => {
@@ -36,4 +39,4 @@ const LoginForm = (props) => {
     );
 }
 
-export default LoginForm;
+export default connect(LoginForm);
