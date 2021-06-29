@@ -3,7 +3,7 @@ import { Card, Form, Button } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 import {  useDispatch } from 'react-redux';
 
-import * as action from '../store/action';
+// import * as action from '../store/action';
 
 const Signup = (props) => {
     const [form, setForm] = useState({ email: '', password: '' });
@@ -20,7 +20,7 @@ const Signup = (props) => {
 
     const submitHandler =useCallback( (e) => {
         e.preventDefault();
-        dispatch(action.add(form.email, form.password));
+        // dispatch(action.add(form.email, form.password));
         history.push("/");
     },[dispatch, form.email, form.password, history]);
 
