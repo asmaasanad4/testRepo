@@ -7,6 +7,8 @@ import {  useHistory } from 'react-router-dom';
 const Signup = (props) => {
     const history= useHistory();
 
+    
+
     const onClick = () => {
         history.push("./");
     };
@@ -15,7 +17,8 @@ const Signup = (props) => {
        
          <Card>
              <Card.Body>
-                 <FormLabel>Home</FormLabel>
+                 <FormLabel>Home </FormLabel>
+                 <h2>Weelcome, email</h2>
                  <Button className="w-100" onClick={onClick} > Logout</Button>
              </Card.Body>
          </Card>
