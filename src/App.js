@@ -1,10 +1,10 @@
 import React,{useState} from 'react';
-import { Container, Button } from 'react-bootstrap';
+import { Container} from 'react-bootstrap';
+// import { useSelector } from 'react-redux';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  useHistory
+  Route
 } from "react-router-dom";
 
 import LoginForm from './components/LoginForm';
@@ -13,53 +13,30 @@ import HomePage from './components/HomePage';
 
 
 function App() {
-   const [user, setUser] = useState([{ email: '', password: '' }]);
-   const [doneLogin, setDoneLogin] = useState('');
+   const [user, setUser] = useState({ email: '', password: '' });
+  //  const success = useSelector(state => state.fReducer.loginSuccess);
+  //  console.log(success);
+  
 
-   const history = useHistory();
+   //const history = useHistory();
+
+  //  const users = useSelector(state => state.fReducer.avilableUsers);
+  //  console.log(users);
 
    const signup = userDetails =>{
-     console.log(userDetails.email,userDetails.password)
-     setUser([{
+     setUser({
        email: userDetails.email,
        password: userDetails.password
-     }]);
-     user.map((key) => console.log(key));
+     });
    };
-   const Login = loginDetails =>{
-      if(loginDetails.email=== user.email && loginDetails.password=== user.password){
-        setDoneLogin('Done');
-      }
+  //  const Login = () =>{
+  //    console.log(success);
+  //    if(success){
+  //      history.push("/Home");
+  //    }
      
-   };
-   const onClick =() =>{
-     console.log(doneLogin);
-     console.log('ddddddddddd');
-     if(doneLogin){
-     console.log('ddddddddddd');
-       history.push("/Home");
-     }
-   };
-
-  // const [error,setError]= useState(true);
-
-  // const Login = details => {
-  //   if(details.email=== admin.email&& details.password=== admin.password){
-  //     setError(false);
-  //     setUser({
-  //       email: details.email,
-  //       password: details.password
-  //     });
-  //   }else if(details.email=== ''&& details.password=== '' ){
-  //     setError(true);
-  //   }
-  // };
-
-  // const LogoutHandler = () => {
-  //   setError(true);
-  //   setUser({ email: '', password: '' });
-  // };
-
+  //  };
+  
   return (
     <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: "100vh" }}>
     <div className="w-100" style={{ maxWidth: "400px" }}>
@@ -69,30 +46,12 @@ function App() {
             <Signup signup={signup}/>
           </Route>
           <Route path="/Home">
-            <HomePage />
+            <HomePage user={user}/>
           </Route>
-          <Route path="/">
-            <LoginForm Login={Login} />
-            <Button className="w-100" onClick={onClick}  >Login</Button>
+          <Route path="/" >
+            <LoginForm  />
           </Route>
         </Switch>
-    
-      {/* <header className="App-header">
-        {(error) ? (
-          <div>
-          <LoginForm Login={Login} />
-          {(error)? <div>error </div> :<div></div>}
-        </div>
-          
-        ) : ( 
-          <div>
-            <h2>Welcome, <span>{user.email}</span></h2>
-            <button onClick={LogoutHandler}>Logout</button>
-          </div>
-          )
-        }
-      </header> */}
-   
     </Router>
     </div>
     </Container>
