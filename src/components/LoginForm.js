@@ -6,10 +6,10 @@ import { useDispatch, useSelector } from "react-redux";
 import * as action from "../store/action-creator";
 
 const LoginForm = (props) => {
-  const correctUser = {
-    email: "asmaa@as.com",
-    password: "1234",
-  };
+  // const correctUser = {
+  //   email: "asmaa@as.com",
+  //   password: "1234",
+  // };
   const [form, setForm] = useState({ email: "", password: "" });
 
   const dispatch = useDispatch();
@@ -24,13 +24,13 @@ const LoginForm = (props) => {
   if (loggedIn) {
     history.push("/Home");
   }
-
-  if (email === correctUser.email && password === correctUser.password) {
-    dispatch(action.loginSuccess());
-  }
-  if (email !== "" && password !== "" && loading && !loggedIn) {
-    dispatch(action.loginfaild());
-  }
+  console.log(email);
+  // if (email === correctUser.email && password === correctUser.password) {
+  //   dispatch(action.loginSuccess());
+  // }
+  // if (email !== "" && password !== "" && loading && !loggedIn) {
+  //   dispatch(action.loginfaild());
+  // }
 
   // const success = useSelector(state => state.fReducer.loginSuccess);
   // console.log(success);
@@ -41,10 +41,24 @@ const LoginForm = (props) => {
       [e.target.name]: e.target.value,
     }));
   };
+
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(action.tryLogin(form.email, form.password));
-    console.log(form);
+    fetch(
+      `http://localhost:3000/users?username=${form.email}&password=${form.password}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (
+          form.email === data[0].username &&
+          form.password === data[0].password
+        ) {
+          dispatch(action.loginSuccess());
+        } else {
+          dispatch(action.loginfaild());
+        }
+      });
   };
   console.log(!loading && !loggedIn && email !== "" && password !== "");
   // const submitHandler = useCallback((e) => {

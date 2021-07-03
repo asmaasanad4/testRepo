@@ -9,7 +9,7 @@ const Signup = (props) => {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const email = useSelector((state) => state.authReducer.email);
+  const name = useSelector((state) => state.signupReducer.name);
 
   const onSubmitHandler = () => {
     dispatch(action.logout());
@@ -20,7 +20,7 @@ const Signup = (props) => {
     <Card>
       <Card.Body>
         <h1>Home </h1>
-        <h4 className="w-100 text-center mt-2 ">Welcome, {email}</h4>
+        <h4 className="w-100 text-center mt-2 ">Welcome, {name}</h4>
         <Button className="w-100" type="button" onClick={onSubmitHandler}>
           Logout
         </Button>
