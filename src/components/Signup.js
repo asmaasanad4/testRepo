@@ -61,7 +61,7 @@ const Signup = (props) => {
         <Card.Body>
           <h2 className="text-center mb-4">Sign up</h2>
           <Form style={{ minWidth: "50vh" }} onSubmit={submitHandler}>
-            <Form.Group id="email">
+            <Form.Group id="name">
               <Form.Label>Name</Form.Label>
               <Form.Control
                 type="name"
