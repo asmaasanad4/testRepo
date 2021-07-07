@@ -1,49 +1,35 @@
-import React, { useState } from 'react';
-// import logo from './logo.svg';
-import './App.css';
-import LoginForm from './components/LoginForm';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import LoginForm from "./components/LoginForm";
+import Signup from "./components/Signup";
+import HomePage from "./components/HomePage";
+import ProductDetails from "./components/product-details";
+import AddProduct from "./components/add-product";
 
 function App() {
-  const admin = {email: 'asmaa@as.com', password: '1234'}
-  const [user, setUser] = useState({ email: '', password: '' });
-  const [error,setError]= useState(true);
-
-  const Login = details => {
-    if(details.email=== admin.email&& details.password=== admin.password){
-      setError(false);
-      setUser({
-        email: details.email,
-        password: details.password
-      });
-    }else{
-      setError(true);
-    }
-  };
-
-  const LogoutHandler = () => {
-    setError(true);
-    setUser({ email: '', password: '' });
-  };
-
   return (
-    <div className="App">
-      <header className="App-header">
-        {(error) ? (
-          <div>
-          <h1>Login</h1>
-          <LoginForm Login={Login} />
-          {(error)? <div>error </div> :<div></div>}
-        </div>
-          
-        ) : ( 
-          <div>
-            <h2>Welcome, <span>{user.email}</span></h2>
-            <button onClick={LogoutHandler}>Logout</button>
-          </div>
-          )
-        }
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Switch>
+          <Route path="/Signup">
+            <Signup />
+          </Route>
+          <Route path="/Home">
+            <HomePage />
+          </Route>
+          <Route path="/" exact>
+            <LoginForm />
+          </Route>
+          <Route path="/prodDetails/:id">
+            <ProductDetails />
+          </Route>
+          <Route path="/addProd">
+            <AddProduct />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

@@ -1,40 +1,34 @@
-import { LOGIN_FAILED, LOGIN_SUCCESS, LOGOUT, TRY_LOGIN } from "./action";
+import { SIGNUP_FAILED, SIGNUP_SUCCESS, TRY_SIGNUP } from "./signup-actions";
 
 const initialState = {
   loading: false,
-  loggedIn: false,
+  signedup: false,
+  name: "",
   email: "",
   password: "",
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case TRY_LOGIN:
+    case TRY_SIGNUP:
       return {
         ...state,
         loading: true,
+        name: action.payload.name,
         email: action.payload.email,
         password: action.payload.password,
       };
-    case LOGIN_SUCCESS:
+    case SIGNUP_SUCCESS:
       return {
         ...state,
         loading: false,
-        loggedIn: true,
+        signedup: true,
       };
-    case LOGIN_FAILED:
+    case SIGNUP_FAILED:
       return {
         ...state,
         loading: false,
-        loggedIn: false,
-      };
-    case LOGOUT:
-      return {
-        ...state,
-        loading: false,
-        loggedIn: false,
-        email: "",
-        password: "",
+        signedup: false,
       };
     default:
       return state;
