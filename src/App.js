@@ -1,61 +1,35 @@
-import React,{useState} from 'react';
-import { Container} from 'react-bootstrap';
-// import { useSelector } from 'react-redux';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import LoginForm from './components/LoginForm';
-import Signup from './components/Signup';
-import HomePage from './components/HomePage';
-
+import LoginForm from "./components/LoginForm";
+import Signup from "./components/Signup";
+import HomePage from "./components/HomePage";
+import ProductDetails from "./components/product-details";
+import AddProduct from "./components/add-product";
 
 function App() {
-   const [user, setUser] = useState({ email: '', password: '' });
-  //  const success = useSelector(state => state.fReducer.loginSuccess);
-  //  console.log(success);
-  
-
-   //const history = useHistory();
-
-  //  const users = useSelector(state => state.fReducer.avilableUsers);
-  //  console.log(users);
-
-   const signup = userDetails =>{
-     setUser({
-       email: userDetails.email,
-       password: userDetails.password
-     });
-   };
-  //  const Login = () =>{
-  //    console.log(success);
-  //    if(success){
-  //      history.push("/Home");
-  //    }
-     
-  //  };
-  
   return (
-    <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: "100vh" }}>
-    <div className="w-100" style={{ maxWidth: "400px" }}>
     <Router>
-      <Switch>
+      <div>
+        <Switch>
           <Route path="/Signup">
-            <Signup signup={signup}/>
+            <Signup />
           </Route>
           <Route path="/Home">
-            <HomePage user={user}/>
+            <HomePage />
           </Route>
-          <Route path="/" >
-            <LoginForm  />
+          <Route path="/" exact>
+            <LoginForm />
+          </Route>
+          <Route path="/prodDetails/:id">
+            <ProductDetails />
+          </Route>
+          <Route path="/addProd">
+            <AddProduct />
           </Route>
         </Switch>
+      </div>
     </Router>
-    </div>
-    </Container>
-   
   );
 }
 

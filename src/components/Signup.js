@@ -54,10 +54,13 @@ const Signup = (props) => {
 
   return (
     <div>
-      <Card>
+      <Card
+        className="align-items-center justify-content-center"
+        style={{ minHeight: "100vh" }}
+      >
         <Card.Body>
           <h2 className="text-center mb-4">Sign up</h2>
-          <Form onSubmit={submitHandler}>
+          <Form style={{ minWidth: "50vh" }} onSubmit={submitHandler}>
             <Form.Group id="email">
               <Form.Label>Name</Form.Label>
               <Form.Control
@@ -96,7 +99,7 @@ const Signup = (props) => {
             </Button>
           </Form>
           <div className="w-100 text-center mt-2">
-            Aleady have an account? <Link to="/Login">Log In</Link>
+            Aleady have an account? <Link to="/">Log In</Link>
           </div>
         </Card.Body>
       </Card>

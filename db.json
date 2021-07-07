@@ -3,13 +3,13 @@
     {
       "id": 1,
       "name": "Asmaa",
-      "username": "asmaa@as.com",
+      "email": "asmaa@as.com",
       "password": "1234"
     },
     {
       "id": 2,
       "name": "Ahmed",
-      "username": "ahmed@ah.com",
+      "email": "ahmed@ah.com",
       "password": "1111"
     },
     {
@@ -35,6 +35,50 @@
       "email": "asmaasanad4@gmail.com",
       "password": "1234",
       "id": 6
+    },
+    {
+      "name": "wwwwwww",
+      "email": "ahmedsanad3@yahoo.com",
+      "password": "1234",
+      "id": 7
+    },
+    {
+      "name": "egypt",
+      "email": "ahmedsanad2@yahoo.com",
+      "password": "1234",
+      "id": 8
+    },
+    {
+      "name": "egypt",
+      "email": "asmaasanad4@gmail.com",
+      "password": "1234",
+      "id": 9
+    },
+    {
+      "name": "Asmaa Sanad",
+      "email": "asmaasanad4@gmail.com",
+      "password": "1234",
+      "id": 10
+    },
+    {
+      "name": "Asmaa Sanad",
+      "email": "asmaasanad4@gmail.com",
+      "password": "1234",
+      "id": 11
+    }
+  ],
+  "product": [
+    {
+      "id": 1,
+      "name": "product one",
+      "price": "20$",
+      "description": "This is a product. This is a product. This is a product"
+    },
+    {
+      "id": 2,
+      "name": "product twp",
+      "price": "10$",
+      "description": "This is a product. This is a product. This is a product"
     }
   ]
 }

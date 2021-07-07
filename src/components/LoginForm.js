@@ -6,10 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import * as action from "../store/action-creator";
 
 const LoginForm = (props) => {
-  // const correctUser = {
-  //   email: "asmaa@as.com",
-  //   password: "1234",
-  // };
   const [form, setForm] = useState({ email: "", password: "" });
 
   const dispatch = useDispatch();
@@ -24,16 +20,6 @@ const LoginForm = (props) => {
   if (loggedIn) {
     history.push("/Home");
   }
-  console.log(email);
-  // if (email === correctUser.email && password === correctUser.password) {
-  //   dispatch(action.loginSuccess());
-  // }
-  // if (email !== "" && password !== "" && loading && !loggedIn) {
-  //   dispatch(action.loginfaild());
-  // }
-
-  // const success = useSelector(state => state.fReducer.loginSuccess);
-  // console.log(success);
 
   const onChangeHandler = (e) => {
     setForm((prevState) => ({
@@ -45,13 +31,14 @@ const LoginForm = (props) => {
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(action.tryLogin(form.email, form.password));
+    console.log(form.email, form.password, "email password");
     fetch(
-      `http://localhost:3000/users?username=${form.email}&password=${form.password}`
+      `http://localhost:3000/users?email=${form.email}&password=${form.password}`
     )
       .then((response) => response.json())
       .then((data) => {
         if (
-          form.email === data[0].username &&
+          form.email === data[0].email &&
           form.password === data[0].password
         ) {
           dispatch(action.loginSuccess());
@@ -60,27 +47,16 @@ const LoginForm = (props) => {
         }
       });
   };
-  console.log(!loading && !loggedIn && email !== "" && password !== "");
-  // const submitHandler = useCallback((e) => {
-  //     e.preventDefault();
-  // //    dispatch(action.login(form.email, form.password));
-  // // console.log(success,"   hhhh");
-  // //    if(success){
-  // //     console.log("Done");
-  // //     history.push("/Home");
-  // //    }else{
-  // //        console.log("Errooooooooooooooooooooooor");
-  // //    }
-
-  // },[dispatch, form.email, form.password, history, success]);
-  // useEffect(() => {},[submitHandler,success]);
 
   return (
     <div>
-      <Card>
+      <Card
+        className="align-items-center justify-content-center"
+        style={{ minHeight: "100vh" }}
+      >
         <Card.Body>
           <h2 className="text-center mb-4">Log In</h2>
-          <Form onSubmit={submitHandler}>
+          <Form style={{ minWidth: "50vh" }} onSubmit={submitHandler}>
             <Form.Group id="email">
               <Form.Label>Email</Form.Label>
               <Form.Control
