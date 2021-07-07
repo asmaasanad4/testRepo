@@ -79,6 +79,12 @@
       "name": "product twp",
       "price": "10$",
       "description": "This is a product. This is a product. This is a product"
+    },
+    {
+      "name": "mmmmmm",
+      "price": "20$",
+      "description": "hjgfh hgjgjhkfg kjghku",
+      "id": 3
     }
   ]
 }
